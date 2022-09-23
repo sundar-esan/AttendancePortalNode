@@ -63,9 +63,17 @@ const PORT = process.env.PORT
     "attendence_tillnow":"100%"
 }]
 
+app.use(
+    cors({
+      origin: "*",
+    })
+  );
+
+
+
 app.use(express.json()); //middleware -> intercept --> converting body to json
 
-app.use(cors());
+
 
 
 
