@@ -103,7 +103,7 @@ return client;
 app.post("/students", async function(req,res){
     const data = req.body;
     console.log(data);
-    const result = await client.db("b30wd").collection("students").insertMany(data);
+    const result = await client.db("b30wd").collection("students").insertOne(data);
     res.send(result);
 });
 
