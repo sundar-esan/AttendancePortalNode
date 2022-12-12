@@ -63,11 +63,7 @@ const PORT = process.env.PORT
     "attendence_tillnow":"100%"
 }]
 
-app.use(
-    cors({
-      origin: "*",
-    })
-  );
+app.use(cors({ origin:"*"}));
 
 
 
@@ -123,9 +119,10 @@ app.delete("/students/:id", async function(req, res){
 });
     
 app.put("/students/:id", async function(req, res){
-     console.log(req.params);
+    //  console.log(req.params);
     const {id}  = req.params;
     const updateData = req.body;
+    console.log(updateData);
     const result = await client.db("b30wd").collection("students").updateOne({id:id},{$set:updateData});
     res.send(result);
 });
